@@ -6,5 +6,5 @@ Is the sample project for learning angular with NgRx
 
 - [x] Implement simple counter
 - [x] Implement simple chat
-- [] Implement filter
-- [] Use ngrx effects
+- [ ] Implement filter
+- [ ] Use ngrx effects
