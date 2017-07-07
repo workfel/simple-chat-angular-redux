@@ -5,8 +5,10 @@
     counter: {{counter}}
   </div>
   <div fxLayout="column">
-    <div *ngFor="let message of messages">
-      {{message.message}}
+    <div>
+      <md-list *ngFor="let message of messages">
+        <app-message [message]="message"></app-message>
+      </md-list>
     </div>
   </div>
 </div>

@@ -8,6 +8,8 @@ import {reducer} from './reducers/index';
 import {ChatComponent} from './chat/chat.component';
 import {FloatChatComponent} from './float-chat/float-chat.component';
 import {FormsModule} from '@angular/forms';
+import {SharedModule} from './shared/shared.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,8 +20,10 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     FlexLayoutModule,
+    BrowserAnimationsModule,
     FormsModule,
     StoreModule.provideStore(reducer),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

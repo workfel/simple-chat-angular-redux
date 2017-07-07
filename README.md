@@ -6,7 +6,7 @@ Is the sample project for learning angular with NgRx
 
 - [x] Implement simple counter
 - [x] Implement simple chat
-- [ ] Remove a message
+- [x] Remove a message
 - [ ] Edit a message
 - [ ] Add a sub-message
 - [ ] Implement filter

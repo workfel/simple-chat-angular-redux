@@ -32,5 +32,6 @@ export function reducer(state: any, action: any) {
 
 
 export const getMessagesState = (state: State) => state.messages;
+export const getAllMessage = createSelector(getMessagesState, fromMessages.getAllMessage);
 
 export const getNewMessage = createSelector(getMessagesState, fromMessages.getNewMessage);
