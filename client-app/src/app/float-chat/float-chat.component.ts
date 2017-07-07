@@ -1,10 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
+import {Observable} from 'rxjs/Observable';
+
+import {Counter} from '../reducers/counter';
+import {Message} from '../models/message';
 
 import * as fromRoot from '../reducers';
-import {Counter} from '../reducers/counter';
-import {Observable} from 'rxjs/Observable';
-import {Message} from '../models/message';
+import * as message from '../actions/message';
+
 
 @Component({
   selector: 'app-float-chat',
@@ -12,7 +15,7 @@ import {Message} from '../models/message';
   styleUrls: ['./float-chat.component.css']
 })
 export class FloatChatComponent implements OnInit {
-  messages: Array<Message>;
+  messages: Observable<Array<Message>>;
   counter: number;
 
   constructor(private store: Store<fromRoot.State>) {
@@ -23,11 +26,15 @@ export class FloatChatComponent implements OnInit {
     //     this.messages.push(message)
     // });
     // this.messages = this.store.select(fromRoot.getMessagesState);
-    this.store.select(fromRoot.getAllMessage).subscribe(messages => this.messages = messages);
+    this.messages = this.store.select(fromRoot.getAllMessage);
 
   }
 
   ngOnInit() {
   }
 
+
+  onRemoveMessage(messageToRemove: Message) {
+    this.store.dispatch(new message.DeleteMessageAction(messageToRemove));
+  }
 }

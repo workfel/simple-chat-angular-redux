@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Message} from '../../models/message';
 import {Store} from '@ngrx/store';
 
@@ -13,16 +13,18 @@ import * as message  from  '../../actions/message';
 export class MessageComponent implements OnInit {
   @Input()
   message: Message;
+  @Output()
+  removeMessage: EventEmitter<Message> = new EventEmitter();
 
 
-  constructor(private store: Store<fromRoot.State>) {
+  constructor() {
   }
 
   ngOnInit() {
   }
 
   onDelete() {
-    this.store.dispatch(new message.DeleteMessageAction(this.message));
+    this.removeMessage.emit(this.message);
   }
 
 }

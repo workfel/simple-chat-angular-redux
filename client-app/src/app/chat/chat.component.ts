@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 
 import * as fromRoot from '../reducers';
+import * as message from '../actions/message';
+import {Message} from '../models/message';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-chat',
@@ -9,16 +12,18 @@ import * as fromRoot from '../reducers';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-  messages = [];
+  message: Observable<Message>;
 
   constructor(private store: Store<fromRoot.State>) {
-    this.store.select(fromRoot.getNewMessage).subscribe(message => {
-      if (message)
-        this.messages.push(message)
-    });
+    this.message = this.store.select(fromRoot.getNewMessage);
+
   }
 
   ngOnInit() {
+  }
+
+  onRemoveMessage(messageToRemove: Message) {
+    this.store.dispatch(new message.DeleteMessageAction(messageToRemove));
   }
 
 }

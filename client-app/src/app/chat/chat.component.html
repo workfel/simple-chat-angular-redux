@@ -2,9 +2,8 @@
   <h2>Chat</h2>
 
   <div fxLayout="column">
-    <div *ngFor="let message of messages">
-      {{message.message}}
-      <hr>
-    </div>
+    <md-list>
+      <app-message [message]="message | async" (removeMessage)="onRemoveMessage($event)"></app-message>
+    </md-list>
   </div>
 </div>
