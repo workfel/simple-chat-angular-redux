@@ -1,0 +1,10 @@
+<div fxLayout="column">
+  <h2>Chat</h2>
+
+  <div fxLayout="column">
+    <div *ngFor="let message of messages">
+      {{message.message}}
+      <hr>
+    </div>
+  </div>
+</div>

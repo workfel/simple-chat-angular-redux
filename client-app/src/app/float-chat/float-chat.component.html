@@ -1,0 +1,12 @@
+<div fxLayout="column">
+  <h2>Floating Chat</h2>
+
+  <div>
+    counter: {{counter}}
+  </div>
+  <div fxLayout="column">
+    <div *ngFor="let message of messages">
+      {{message.message}}
+    </div>
+  </div>
+</div>

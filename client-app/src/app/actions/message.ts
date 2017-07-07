@@ -1,0 +1,22 @@
+import {Action} from '@ngrx/store';
+import {Message} from '../models/message';
+export const ADD_MESSAGE = '[MESSAGE] ADD_MESSAGE';
+export const LOAD_MESSAGE = '[MESSAGE] LOAD_MESSAGE';
+
+
+export class AddMessageAction implements Action {
+  readonly type = ADD_MESSAGE;
+
+  constructor(public payload: Message) {
+  }
+}
+
+
+export class LoadMessageAction implements Action {
+  readonly type = LOAD_MESSAGE;
+
+  constructor(public payload: Message[]) {
+  }
+}
+
+export type Actions = AddMessageAction | LoadMessageAction;
