@@ -11,3 +11,5 @@ Is the sample project for learning angular with NgRx
 - [ ] Add a sub-message
 - [ ] Implement filter
 - [ ] Use ngrx effects
+- [ ] Use with ngrx router
+- [ ] Implement a messenger like
