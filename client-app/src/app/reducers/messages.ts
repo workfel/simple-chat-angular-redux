@@ -59,11 +59,6 @@ export const getEntities = (state: State) => state.entities;
 
 export const getIds = (state: State) => state.ids;
 
-export const getNewMessage = createSelector(getEntities, getMessageState, (entities, messageId) => {
-  return entities.filter(message => message.id === messageId)[0];
-});
-
-
 export const getLastMessage = createSelector(getEntities, (entities) => {
   return entities[entities.length - 1];
 });
@@ -76,9 +71,4 @@ export const getAllMessage = createSelector(getEntities, getMessageState, (entit
 export const getMessageDeleted = createSelector(getEntities, getMessageState, (entities, messageId) => {
   return entities[messageId];
 });
-
-//
-// export const getMessageEdited = createSelector(getEntities, getMessageState, (entities, messageId) => {
-//   return entities.filter(message => message.id === messageId)[0];
-// });
 
