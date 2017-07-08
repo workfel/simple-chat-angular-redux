@@ -6,7 +6,12 @@
   </div>
   <div fxLayout="column">
     <div>
-      <app-message-list (removeMessage)="onRemoveMessage($event)" [messages]="messages | async"></app-message-list>
+      <app-message-list
+        [messages]="messages | async"
+        (removeMessage)="onRemoveMessage($event)"
+        (editMessage)="onEditMessage($event)">
+
+      </app-message-list>
       <!--<md-list *ngFor="let message of messages">-->
       <!--<app-message [message]="message"></app-message>-->
       <!--</md-list>-->

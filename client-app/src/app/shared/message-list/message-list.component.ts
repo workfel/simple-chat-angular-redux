@@ -11,6 +11,9 @@ export class MessageListComponent implements OnInit {
   messages: Array<Message>;
   @Output()
   removeMessage: EventEmitter<Message> = new EventEmitter();
+  @Output()
+  editMessage: EventEmitter<Message> = new EventEmitter();
+
 
   constructor() {
   }
@@ -20,6 +23,9 @@ export class MessageListComponent implements OnInit {
 
   onRemoveMessage(message: Message) {
     this.removeMessage.emit(message);
+  }
+  onEditMessage(message: Message) {
+    this.editMessage.emit(message);
   }
 
 

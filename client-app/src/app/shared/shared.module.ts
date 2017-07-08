@@ -1,13 +1,21 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MessageComponent} from './message/message.component';
-import {MdListModule} from '@angular/material';
+import {MdButtonModule, MdIconModule, MdInputModule, MdListModule, MdMenuModule} from '@angular/material';
 import {MessageListComponent} from './message-list/message-list.component';
+import {FormsModule} from '@angular/forms';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   imports: [
     CommonModule,
-    MdListModule
+    MdListModule,
+    MdMenuModule,
+    MdIconModule,
+    MdButtonModule,
+    MdInputModule,
+    FormsModule,
+    FlexLayoutModule
   ],
   declarations: [
     MessageComponent,
@@ -15,8 +23,12 @@ import {MessageListComponent} from './message-list/message-list.component';
   ],
   exports: [
     MdListModule,
+    MdButtonModule,
+    MdInputModule,
+    FormsModule,
+    FlexLayoutModule,
     MessageComponent,
-    MessageListComponent
+    MessageListComponent,
   ]
 })
 export class SharedModule {

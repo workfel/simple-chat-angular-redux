@@ -1,13 +1,85 @@
-<md-list-item *ngIf="message">
-  <img md-list-avatar
-       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf-Z5hMmwe0I_Z240vbVD6Ouel8TmFMj64Cfo3IVVUc3IoOVC4tw"
-       alt="avatar">
-  <h3 md-line> {{message.sender}} </h3>
-  <p md-line>
-    <span> {{message.message}} </span>
-    <span> -- <button (click)="onDelete()">X</button></span>
-  </p>
-  <p md-line="">
-    {{message.date}}
-  </p>
-</md-list-item>
+<!--TODO : remove this ngIf-->
+<div fxLayout="column" *ngIf="message">
+  <div fxLayout="row">
+    <div>
+      <img class="avatar"
+           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf-Z5hMmwe0I_Z240vbVD6Ouel8TmFMj64Cfo3IVVUc3IoOVC4tw"
+           alt="avatar">
+    </div>
+    <div fxFlex fxLayout="column" fxLayoutAlign="center end">
+      <div>
+        {{message.sender}}
+      </div>
+
+      <div>
+        <span *ngIf="!isEditing"> {{message.message}}</span>
+        <div *ngIf="isEditing" fxLayout="row" fxFlex>
+          <md-input-container>
+            <input mdInput [(ngModel)]="messageToEdit" placeholder="Your message">
+          </md-input-container>
+
+
+          <button (click)="onMessageEdited()" md-button>
+            <md-icon class="md-18">send</md-icon>
+          </button>
+        </div>
+
+
+        <button md-icon-button [mdMenuTriggerFor]="menu">
+          <md-icon>more_vert</md-icon>
+        </button>
+        <md-menu #menu="mdMenu">
+          <button md-menu-item (click)="onDelete()">
+            <md-icon class="md-18">remove</md-icon>
+            <span>Delete</span>
+          </button>
+          <button md-menu-item (click)="onEditMessage()">
+            <md-icon class="md-18">edit</md-icon>
+            <span>Edit</span>
+          </button>
+        </md-menu>
+        <p md-line="">
+          {{message.date}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--<md-list-item *ngIf="message">-->
+<!--<img md-list-avatar-->
+<!--src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf-Z5hMmwe0I_Z240vbVD6Ouel8TmFMj64Cfo3IVVUc3IoOVC4tw"-->
+<!--alt="avatar">-->
+<!--<h3 md-line> {{message.sender}} </h3>-->
+<!--<div fxLayout="column">-->
+
+
+<!--<span *ngIf="!isEditing"> {{message.message}}</span>-->
+<!--<span *ngIf="isEditing" fxLayout="row" fxFlex>-->
+<!--<md-input-container>-->
+<!--<input mdInput [(ngModel)]="message.message" placeholder="Your message">-->
+<!--</md-input-container>-->
+
+<!--<button (click)="onMessageEdited()" md-button>-->
+<!--<md-icon class="md-18">send</md-icon>-->
+<!--</button>-->
+<!--</span>-->
+
+
+<!--<button md-icon-button [mdMenuTriggerFor]="menu">-->
+<!--<md-icon>more_vert</md-icon>-->
+<!--</button>-->
+<!--<md-menu #menu="mdMenu">-->
+<!--<button md-menu-item (click)="onDelete()">-->
+<!--<md-icon class="md-18">remove</md-icon>-->
+<!--<span>Delete</span>-->
+<!--</button>-->
+<!--<button md-menu-item (click)="onEditMessage()">-->
+<!--<md-icon class="md-18">edit</md-icon>-->
+<!--<span>Edit</span>-->
+<!--</button>-->
+<!--</md-menu>-->
+<!--</div>-->
+<!--<p md-line="">-->
+<!--{{message.date}}-->
+<!--</p>-->
+<!--</md-list-item>-->

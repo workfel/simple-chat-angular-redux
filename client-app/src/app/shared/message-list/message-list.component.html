@@ -1,3 +1,7 @@
 <md-list *ngFor="let message of messages">
-  <app-message [message]="message" (removeMessage)="onRemoveMessage($event)"></app-message>
+  <app-message [message]="message"
+               (removeMessage)="onRemoveMessage($event)"
+               (editMessage)="onEditMessage($event)">
+
+  </app-message>
 </md-list>

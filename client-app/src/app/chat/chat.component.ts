@@ -15,7 +15,7 @@ export class ChatComponent implements OnInit {
   message: Observable<Message>;
 
   constructor(private store: Store<fromRoot.State>) {
-    this.message = this.store.select(fromRoot.getNewMessage);
+    this.message = this.store.select(fromRoot.getLastMessage);
 
   }
 

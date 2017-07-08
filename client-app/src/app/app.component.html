@@ -22,8 +22,11 @@
   <div fxLayoutAlign="end center" fxLayout="column">
     <div>
       <form (ngSubmit)="onSubmit()">
-        <input type="text" placeholder="Type your message..." [(ngModel)]="message" name="message">
-        <button>Send</button>
+        <md-input-container>
+          <input autofocus mdInput placeholder="Type your message..." [(ngModel)]="message" name="message">
+        </md-input-container>
+
+        <button md-button color="primary">Send</button>
       </form>
     </div>
   </div>

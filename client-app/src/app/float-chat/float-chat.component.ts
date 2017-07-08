@@ -20,12 +20,6 @@ export class FloatChatComponent implements OnInit {
 
   constructor(private store: Store<fromRoot.State>) {
     this.store.select('counter').subscribe((counter: Counter) => this.counter = counter.number);
-
-    // this.store.select(fromRoot.getNewMessage).subscribe(message => {
-    //   if (message)
-    //     this.messages.push(message)
-    // });
-    // this.messages = this.store.select(fromRoot.getMessagesState);
     this.messages = this.store.select(fromRoot.getAllMessage);
 
   }
@@ -36,5 +30,10 @@ export class FloatChatComponent implements OnInit {
 
   onRemoveMessage(messageToRemove: Message) {
     this.store.dispatch(new message.DeleteMessageAction(messageToRemove));
+  }
+
+
+  onEditMessage(messageToEdit: Message) {
+    this.store.dispatch(new message.EditMessageAction(messageToEdit));
   }
 }

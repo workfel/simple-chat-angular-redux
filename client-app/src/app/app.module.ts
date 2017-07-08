@@ -10,6 +10,7 @@ import {FloatChatComponent} from './float-chat/float-chat.component';
 import {FormsModule} from '@angular/forms';
 import {SharedModule} from './shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -19,10 +20,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    FlexLayoutModule,
     BrowserAnimationsModule,
-    FormsModule,
     StoreModule.provideStore(reducer),
+    StoreDevtoolsModule.instrumentOnlyWithExtension({
+      maxAge: 5
+    }),
     SharedModule
   ],
   providers: [],

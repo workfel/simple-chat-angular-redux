@@ -35,3 +35,4 @@ export const getMessagesState = (state: State) => state.messages;
 export const getAllMessage = createSelector(getMessagesState, fromMessages.getAllMessage);
 
 export const getNewMessage = createSelector(getMessagesState, fromMessages.getNewMessage);
+export const getLastMessage = createSelector(getMessagesState, fromMessages.getLastMessage);

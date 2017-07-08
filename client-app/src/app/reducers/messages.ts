@@ -26,6 +26,19 @@ export function reducer(state = initialState, action: message.Actions): State {
         currentMessageId: message.id
       };
     }
+
+    case message.EDIT_MESSAGE: {
+      return {
+        ids: state.ids,
+        entities: state.entities.map((message) => {
+          if (message.id === action.payload.id) {
+            return Object.assign({}, message, action.payload);
+          }
+          return message;
+        })
+      };
+    }
+
     case message.DELETE_MESSAGE: {
 
       return {
@@ -51,6 +64,11 @@ export const getNewMessage = createSelector(getEntities, getMessageState, (entit
 });
 
 
+export const getLastMessage = createSelector(getEntities, (entities) => {
+  return entities[entities.length - 1];
+});
+
+
 export const getAllMessage = createSelector(getEntities, getMessageState, (entities, messageId) => {
   return entities;
 });
@@ -58,4 +76,9 @@ export const getAllMessage = createSelector(getEntities, getMessageState, (entit
 export const getMessageDeleted = createSelector(getEntities, getMessageState, (entities, messageId) => {
   return entities[messageId];
 });
+
+//
+// export const getMessageEdited = createSelector(getEntities, getMessageState, (entities, messageId) => {
+//   return entities.filter(message => message.id === messageId)[0];
+// });
 
