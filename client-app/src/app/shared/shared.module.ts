@@ -5,6 +5,7 @@ import {MdButtonModule, MdIconModule, MdInputModule, MdListModule, MdMenuModule}
 import {MessageListComponent} from './message-list/message-list.component';
 import {FormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {SearchUserComponent} from './search-user/search-user.component';
 
 @NgModule({
   imports: [
@@ -15,20 +16,23 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MdButtonModule,
     MdInputModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MdIconModule
   ],
   declarations: [
     MessageComponent,
-    MessageListComponent
+    MessageListComponent,
+    SearchUserComponent
   ],
   exports: [
+    FormsModule,
+    FlexLayoutModule,
     MdListModule,
     MdButtonModule,
     MdInputModule,
-    FormsModule,
-    FlexLayoutModule,
     MessageComponent,
     MessageListComponent,
+    MdIconModule
   ]
 })
 export class SharedModule {

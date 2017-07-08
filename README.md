@@ -21,6 +21,7 @@ $ ng serve --open
 - [x] Implement simple chat
 - [x] Remove a message
 - [x] Edit a message
+- [ ] Add design
 - [ ] Implement filter
 - [ ] Use ngrx effects
 - [ ] Use with ngrx router
