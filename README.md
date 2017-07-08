@@ -2,7 +2,8 @@
 
 Is the sample project for learning angular with NgRx
 
-<img src="?.img/screen.png" width="200">
+![](./img/screen.png)
+
 
 # Installation
 ```sh
