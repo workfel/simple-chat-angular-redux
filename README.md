@@ -13,3 +13,6 @@ Is the sample project for learning angular with NgRx
 - [ ] Use ngrx effects
 - [ ] Use with ngrx router
 - [ ] Implement a messenger like
+- [ ] Add unit test
+- [ ] Add e2e
+- [ ] Add documentation
